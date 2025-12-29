@@ -9,7 +9,17 @@ const reportSchema = new mongoose.Schema({
         required: true 
     },
     description: { type: String },
-    status: { type: String, enum: ['Pending', 'Resolved'], default: 'Pending' }
+    
+    // 🔧 FIX 1: Add 'Rejected' to enum
+    status: { 
+        type: String, 
+        enum: ['Pending', 'Resolved', 'Rejected'], 
+        default: 'Pending' 
+    },
+
+    // 🔧 FIX 2: Separate Admin Note Field (Clean Data)
+    adminNote: { type: String } 
+
 }, {
     timestamps: true
 });
